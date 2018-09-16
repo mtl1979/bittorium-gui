@@ -1,4 +1,4 @@
-// Copyright (c) 2015-2018, The Bytecoin developers
+﻿// Copyright (c) 2015-2018, The Bytecoin developers
 // Copyright (c) 2018, The PinkstarcoinV2 developers
 // Copyright (c) 2018, The Bittorium developers
 //
@@ -43,7 +43,7 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_hideMyPortOption("hide-my-port", tr("Do not announce yourself as peerlist candidate")),
   m_dataDirOption("data-dir", tr("Specify data directory"), tr("directory"), QString::fromStdString(Tools::getDefaultDataDirectory())),
   m_minimized("minimized", tr("Run application in minimized mode")) {
-  m_parser.setApplicationDescription(tr("PinkstarcoinV2 wallet"));
+  m_parser.setApplicationDescription(tr("Bittorium wallet"));
   m_parser.addHelpOption();
   m_parser.addVersionOption();
   m_parser.addOption(m_debugOption);

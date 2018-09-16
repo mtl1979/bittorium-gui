@@ -50,7 +50,7 @@ If you are building on an older processor without AVX support, add the following
 
 You may find it helpful to explicitly include Boost and QT paths:
 ```
-cmake.exe -D PORTABLE=1 -W no-dev -D BOOST_ROOT=C:\boost_1_59_0 -D BOOST_LIBRARYDIR=C:\boost_1_59_0\libs\ -DC MAKE_PREFIX_PATH=D:\Qt\5.10.0\msvc2015_64 -G "Visual Studio 14 Win64" ..
+cmake.exe -DPORTABLE=1 -Wno-dev -D BOOST_ROOT=C:\boost_1_59_0 -D BOOST_LIBRARYDIR=C:\boost_1_59_0\libs\ -D CMAKE_PREFIX_PATH=D:\Qt\5.10.0\msvc2015_64 -G "Visual Studio 14 Win64" ..
 ```
 
 And then build from within MSVC.

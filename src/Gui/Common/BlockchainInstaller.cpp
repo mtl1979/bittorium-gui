@@ -54,7 +54,7 @@ void BlockchainInstaller::exec() {
     return;
   }
 
-  if (!checkIfpinkstarcoinBlockchainExists()) {
+  if (!checkIfBittoriumBlockchainExists()) {
     installBlockchain();
     return;
   }
@@ -67,7 +67,7 @@ void BlockchainInstaller::exec() {
 
   QString questionStringTemplate = tr("Would you like to replace your current blockchain (height: %1)\nwith the one in your GUI wallet folder (height: %2)?");
 
-  QuestionDialog dlg(tr("Blockchain installation"), QString(questionStringTemplate).arg(pinkstarcoinHeight).arg(currentHeight), nullptr);
+  QuestionDialog dlg(tr("Blockchain installation"), QString(questionStringTemplate).arg(BittoriumHeight).arg(currentHeight), nullptr);
   if (dlg.exec() == QDialog::Accepted) {
     installBlockchain();
   }
@@ -76,11 +76,6 @@ void BlockchainInstaller::exec() {
 bool BlockchainInstaller::checkIfCurrentBlockchainExists() const {
   char *genesisBlockData = nullptr;
   if (!getGenesisBlockFromBlockchain(&genesisBlockData)) {
-    return false;
-  }
-
-  QByteArray ethalonGenesisBlock = QByteArray::fromHex(ETHALON_GENESIS_BLOCK_STRING);
-  if (std::memcmp(ethalonGenesisBlock.data(), genesisBlockData, ethalonGenesisBlock.size())) {
     return false;
   }
 
@@ -121,8 +116,8 @@ bool BlockchainInstaller::getGenesisBlockFromBlockchain(char** _genesisBlockData
   return true;
 }
 
-bool BlockchainInstaller::checkIfpinkstarcoinBlockchainExists() const {
-  return m_BittroiumDir.exists() && m_BittoriumDir.exists(m_blocksFileName);
+bool BlockchainInstaller::checkIfBittoriumBlockchainExists() const {
+  return m_BittoriumDir.exists() && m_BittoriumDir.exists(m_blocksFileName);
 }
 
 bool BlockchainInstaller::checkIfBlockchainOutdated(quint64& _sourceHeight, quint64& _targetHeight) const {
@@ -149,7 +144,7 @@ QFileInfo BlockchainInstaller::currentBlockchainInfo() const {
   return QFileInfo(m_applicationDir.absoluteFilePath(m_blocksFileName));
 }
 
-QFileInfo BlockchainInstaller::pinkstarcoinBlockchainInfo() const {
+QFileInfo BlockchainInstaller::BittoriumBlockchainInfo() const {
   return QFileInfo(m_BittoriumDir.absoluteFilePath(m_blocksFileName));
 }
 

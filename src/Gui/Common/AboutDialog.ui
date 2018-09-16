@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>AboutDialog</class>
  <widget class="QDialog" name="AboutDialog">
@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>About PinkstarcoinV2</string>
+   <string>About Bittorium</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
    <item>
