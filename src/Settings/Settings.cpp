@@ -84,7 +84,8 @@ Settings& Settings::instance() {
 
 
 Settings::Settings() : m_p2pBindPort(0), m_cmdLineParser(nullptr) {
-  m_defaultPoolList << "btor.youpool.io:3339";
+  m_defaultPoolList << "pool.bittorium.org:3333";
+  m_defaultPoolList << "pool.raasu.org:3333";
   m_defaultPoolList << "btor.simpool.xyz:3223";
 
   Style* lightStyle = new LightStyle();
