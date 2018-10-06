@@ -80,6 +80,11 @@ CryptoNote::BlockHeaderInfo ProxyRpcNodeWorker::getLastLocalBlockInfo() const {
   return m_node->getLastLocalBlockHeaderInfo();
 }
 
+std::string ProxyRpcNodeWorker::getLastFeeAddress() const {
+  Q_ASSERT(!m_node.isNull());
+  return m_node->getLastFeeAddress();
+}
+
 void ProxyRpcNodeWorker::addObserver(INodeAdapterObserver* _observer) {
   QObject* observer = dynamic_cast<QObject*>(_observer);
   Q_ASSERT(observer != nullptr);

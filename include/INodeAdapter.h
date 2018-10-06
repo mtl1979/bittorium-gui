@@ -60,6 +60,7 @@ public:
   virtual quint32 getKnownBlockCount() const = 0;
   virtual quint32 getLocalBlockCount() const = 0;
   virtual CryptoNote::BlockHeaderInfo getLastLocalBlockInfo() const = 0;
+  virtual std::string getLastFeeAddress() const = 0; 
   virtual void addObserver(INodeAdapterObserver* _observer) = 0;
   virtual void removeObserver(INodeAdapterObserver* _observer) = 0;
   virtual IBlockChainExplorerAdapter* getBlockChainExplorerAdapter() = 0;

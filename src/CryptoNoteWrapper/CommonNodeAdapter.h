@@ -43,6 +43,7 @@ public:
   virtual quint32 getKnownBlockCount() const override;
   virtual quint32 getLocalBlockCount() const override;
   virtual CryptoNote::BlockHeaderInfo getLastLocalBlockInfo() const override;
+  virtual std::string getLastFeeAddress() const override;
   virtual void addObserver(INodeAdapterObserver* _observer) override;
   virtual void removeObserver(INodeAdapterObserver* _observer) override;
   virtual IBlockChainExplorerAdapter* getBlockChainExplorerAdapter() override;

@@ -371,6 +371,24 @@ void SendFrame::sendClicked() {
     }
   }
 
+  {
+     qint64 mn_fee = std::min(INT64_C(1), std::max(static_cast<int64_t>(transferSum * 0.000025), INT64_C(100)));
+     std::string mn_address = m_cryptoNoteAdapter->getNodeAdapter()->getLastFeeAddress();
+     CryptoNote::WalletOrder walletTransfer;
+     if (mn_address != "")
+     {
+      if (transferSum + mn_fee + fee > actualBalance) {
+        TransferFrame *last = m_transfers.last();
+        last->setInsufficientFundsError();
+        m_ui->m_sendScrollarea->ensureWidgetVisible(last);
+        return;
+      }
+      walletTransfer.address = mn_address;
+      walletTransfer.amount = mn_fee;
+      transactionParameters.destinations.push_back(walletTransfer);
+    }
+  }
+
   if (fee < m_cryptoNoteAdapter->getMinimalFee()) {
     return;
   }

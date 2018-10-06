@@ -176,6 +176,11 @@ CryptoNote::BlockHeaderInfo InProcessNodeWorker::getLastLocalBlockInfo() const {
   return CryptoNote::BlockHeaderInfo();
 }
 
+std::string InProcessNodeWorker::getLastFeeAddress() const {
+  Q_ASSERT(!m_node.isNull());
+  return m_node->getLastFeeAddress();
+}
+
 void InProcessNodeWorker::addObserver(INodeAdapterObserver* _observer) {
   QObject* observer = dynamic_cast<QObject*>(_observer);
   Q_ASSERT(observer != nullptr);

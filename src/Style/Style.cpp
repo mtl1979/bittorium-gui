@@ -135,11 +135,11 @@ QString Style::glassColor() const {
 
 QIcon Style::getSystemTrayIcon() const {
 #ifdef Q_OS_MAC
-  return QIcon(":images/pinkstarcoin_mac");
+  return QIcon(":images/bittorium_mac");
 #elif defined(Q_OS_LINUX)
-  return QIcon(":images/pinkstarcoin_lin");
+  return QIcon(":images/bittorium_lin");
 #elif defined(Q_OS_WIN)
-  return QIcon(":images/pinkstarcoin_win");
+  return QIcon(":images/bittorium_win");
 #endif
 }
 

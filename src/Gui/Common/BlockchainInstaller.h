@@ -43,7 +43,7 @@ private:
   bool checkIfCurrentBlockchainExists() const;
   bool checkIfBittoriumBlockchainExists() const;
   bool getGenesisBlockFromBlockchain(char** _genesisBlockData) const;
-  bool checkIfBlockchainOutdated(quint64& _current, quint64& _pinkstarcoin) const;
+  bool checkIfBlockchainOutdated(quint64& _current, quint64& _bittorium) const;
   QFileInfo currentBlockchainInfo() const;
   QFileInfo BittoriumBlockchainInfo() const;
 

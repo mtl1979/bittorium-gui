@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>:/images/pinkstarcoin</normaloff>:/images/pinkstarcoin</iconset>
+    <normaloff>:/images/bittorium</normaloff>:/images/bittorium</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">

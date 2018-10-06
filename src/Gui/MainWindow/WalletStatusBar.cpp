@@ -172,12 +172,15 @@ void WalletStatusBar::synchronizationProgressUpdated(quint32 _current, quint32 _
 
   quint64 currentDateTime = QDateTime::currentDateTimeUtc().toMSecsSinceEpoch() / 1000;
   quint64 lastBlockTimestamp = m_nodeStateModel->index(0, NodeStateModel::COLUMN_LAST_LOCAL_BLOCK_TIMESTAMP).data(NodeStateModel::ROLE_LAST_LOCAL_BLOCK_TIMESTAMP).value<quint64>();
-  quint64 timeDiff = currentDateTime - lastBlockTimestamp;
-  QString formattedTimeDiff = lastBlockTimestamp > 0 ? formatTimeDiff(timeDiff) : tr("unknown");
-  QString blockchainAge = lastBlockTimestamp > 0 ? QStringLiteral("%1 ago").arg(formattedTimeDiff) : QStringLiteral("%1").arg(formattedTimeDiff);
+  qint64 timeDiff = currentDateTime - lastBlockTimestamp;
 
   m_walletIsSynchronized = false;
-  m_syncStatusLabel->setText(tr("Synchronisation: %1/%2 (%3)").arg(_current).arg(_total).arg(blockchainAge));
+  if (lastBlockTimestamp > 0 && timeDiff > 0) {
+    QString blockchainAge = QStringLiteral("%1 ago").arg(formatTimeDiff(timeDiff));
+    m_syncStatusLabel->setText(tr("Synchronisation: %1/%2 (%3)").arg(_current).arg(_total).arg(blockchainAge));
+  } else {
+    m_syncStatusLabel->setText(tr("Synchronisation: %1/%2").arg(_current).arg(_total));
+  }
   updateSyncState(false);
 }
 

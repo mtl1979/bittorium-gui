@@ -95,6 +95,11 @@ CryptoNote::BlockHeaderInfo CommonNodeAdapter::getLastLocalBlockInfo() const {
   return m_worker->getLastLocalBlockInfo();
 }
 
+std::string CommonNodeAdapter::getLastFeeAddress() const {
+  Q_ASSERT(m_worker != nullptr);
+  return m_worker->getLastFeeAddress();
+}
+
 void CommonNodeAdapter::addObserver(INodeAdapterObserver* _observer) {
   QObject* observer = dynamic_cast<QObject*>(_observer);
   Q_ASSERT(observer != nullptr);

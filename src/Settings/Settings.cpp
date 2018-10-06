@@ -73,7 +73,7 @@ const quint64 DEFAULT_OPTIMIZATION_MIXIN = 6;
 
 const quint64 VERSION_MAJOR = 2;
 const quint64 VERSION_MINOR = 0;
-const quint64 VERSION_PATCH = 2;
+const quint64 VERSION_PATCH = 3;
 
 }
 
@@ -84,8 +84,12 @@ Settings& Settings::instance() {
 
 
 Settings::Settings() : m_p2pBindPort(0), m_cmdLineParser(nullptr) {
+  m_defaultPoolList << "pool.bittorium.org:3333";
   m_defaultPoolList << "btor.youpool.io:3339";
   m_defaultPoolList << "btor.simpool.xyz:3223";
+  m_defaultPoolList << "miningpool.studio:3333";
+  m_defaultPoolList << "btor.thepiratemine.nl:4111";
+  m_defaultPoolList << "pool.raasu.org:3333";
 
   Style* lightStyle = new LightStyle();
   Style* darkStyle = new DarkStyle();
