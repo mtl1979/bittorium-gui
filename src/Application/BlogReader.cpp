@@ -35,8 +35,12 @@ namespace WalletGui {
 
 namespace {
 
+#if QT_FEATURE_ssl == 1
+const char BLOG_RSS_SCHEME[] = "https";
+#else
 const char BLOG_RSS_SCHEME[] = "http";
-const char BLOG_RSS_HOST[] = "https://bitcointalk.org/index.php?topic=5028348";
+#endif
+const char BLOG_RSS_HOST[] = "bittorium.org";
 const char BLOG_RSS_PATH[] = "/feed/";
 
 const char BLOG_RSS_ID_TAG_NAME[] = "guid";
