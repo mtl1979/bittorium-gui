@@ -85,7 +85,7 @@ private:
   std::atomic<quint32> m_mainNonce;
   std::atomic<quint32> m_alternateNonce;
   std::atomic<quint32> m_hashCounter;
-  std::atomic<quint32> m_alternameHashCounter;
+  std::atomic<quint32> m_alternateHashCounter;
   std::atomic<quint32> m_alternateProbability;
   quint32 m_hashCountPerSecond;
   quint32 m_alternateHashCountPerSecond;

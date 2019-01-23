@@ -35,7 +35,7 @@ const int HASHRATE_TIMER_INTERVAL = 1000;
 Miner::Miner(const QString& _host, quint16 _port, quint32 _difficulty, const QString& _login,
   const QString& _password, QObject* _parent) : QObject(_parent), m_minerState(STATE_STOPPED),
   m_mainJob(), m_alternateJob(), m_mainJobLock(), m_alternateJobLock(), m_alternateStratumClient(nullptr),
-  m_mainNonce(0), m_alternateNonce(0), m_hashCounter(0), m_alternameHashCounter(0), m_alternateProbability(0),
+  m_mainNonce(0), m_alternateNonce(0), m_hashCounter(0), m_alternateHashCounter(0), m_alternateProbability(0),
   m_hashCountPerSecond(0), m_alternateHashCountPerSecond(0), m_hashRateTimerId(-1) {
   m_mainStratumClient = new StratumClient(m_mainJob, m_mainJobLock, m_mainNonce, _host, _port, _difficulty, _login, _password, this);
   m_mainStratumClient->addObserver(this);
@@ -61,7 +61,7 @@ void Miner::start(quint32 _coreCount) {
   for (quint32 i = 0; i < _coreCount; ++i) {
     if (m_workerThreadList.size() < i + 1) {
       Worker* worker = new Worker(m_mainJob, m_alternateJob, m_mainJobLock, m_alternateJobLock,
-        m_mainNonce, m_alternateNonce, m_alternateProbability, m_hashCounter, m_alternameHashCounter, nullptr);
+        m_mainNonce, m_alternateNonce, m_alternateProbability, m_hashCounter, m_alternateHashCounter, nullptr);
       worker->addObserver(m_mainStratumClient);
       if (m_alternateStratumClient != nullptr) {
         worker->addAlternateObserver(m_alternateStratumClient);
@@ -258,9 +258,9 @@ void Miner::lastConnectionErrorTimeChanged(const QDateTime& _lastConnectionError
 void Miner::timerEvent(QTimerEvent* _event) {
   if (_event->timerId() == m_hashRateTimerId) {
     m_hashCountPerSecond = m_hashCounter;
-    m_alternateHashCountPerSecond = m_alternameHashCounter;
+    m_alternateHashCountPerSecond = m_alternateHashCounter;
     m_hashCounter = 0;
-    m_alternameHashCounter = 0;
+    m_alternateHashCounter = 0;
     Q_EMIT hashRateChangedSignal(m_hashCountPerSecond);
     Q_EMIT alternateHashRateChangedSignal(m_alternateHashCountPerSecond);
     return;
