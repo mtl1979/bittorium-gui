@@ -1,6 +1,6 @@
 // Copyright (c) 2015-2018, The Bytecoin developers
 // Copyright (c) 2018, The PinkstarcoinV2 developers
-// Copyright (c) 2018, The Bittorium developers
+// Copyright (c) 2018-2019, The Bittorium developers
 //
 // This file is part of Bytecoin.
 //
@@ -106,6 +106,12 @@ WalletApplication::WalletApplication(int& _argc, char** _argv) : QApplication(_a
   m_systemTrayIcon(new QSystemTrayIcon(this)), m_applicationEventHandler(new ApplicationEventHandler(this)),
   m_optimizationManager(nullptr), m_blogReader(new BlogReader(this)), m_mainWindow(nullptr), m_splash(nullptr),
   m_logWatcher(nullptr), m_isAboutToQuit(false) {
+  if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO")
+      && !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR")
+      && !qEnvironmentVariableIsSet("QT_SCALE_FACTOR")
+      && !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+  }
   setApplicationName("BittoriumWallet");
   setApplicationVersion(Settings::instance().getVersion());
   setQuitOnLastWindowClosed(false);
