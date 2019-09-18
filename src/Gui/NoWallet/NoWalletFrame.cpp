@@ -1,6 +1,6 @@
 // Copyright (c) 2015-2018, The Bytecoin developers
 // Copyright (c) 2018, The PinkstarcoinV2 developers
-// Copyright (c) 2018, The Bittorium developers
+// Copyright (c) 2018-2019, The Bittorium developers
 //
 // This file is part of Bytecoin.
 //
@@ -17,7 +17,9 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with Bytecoin.  If not, see <http://www.gnu.org/licenses/>.
 
+#include <QAction>
 #include <QFileInfo>
+#include <QStyle>
 #include <qtimer.h>
 #include "NoWalletFrame.h"
 #include "Settings/Settings.h"

@@ -1,6 +1,6 @@
 // Copyright (c) 2015-2018, The Bytecoin developers
 // Copyright (c) 2018, The PinkstarcoinV2 developers
-// Copyright (c) 2018, The Bittorium developers
+// Copyright (c) 2018-2019, The Bittorium developers
 //
 // This file is part of Bytecoin.
 //
@@ -18,6 +18,7 @@
 // along with Bytecoin.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QMetaMethod>
+#include <QStyle>
 #include <QUrl>
 #include <QUrlQuery>
 
