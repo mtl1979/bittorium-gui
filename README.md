@@ -100,7 +100,7 @@ mv Bittorium_Wallet-x86_64.AppImage ..
 ##### On Windows
 
 ```
-windeployqt.exe Bittorium.exe
+windeployqt.exe BittoriumWallet.exe
 ```
 
 ## Community and support
