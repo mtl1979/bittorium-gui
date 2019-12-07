@@ -77,7 +77,6 @@ file(GLOB_RECURSE CRYPTONOTE_SOURCES
   cryptonote/src/Common/StringView.cpp
   cryptonote/src/Common/VectorOutputStream.cpp
   cryptonote/src/Common/ScopeExit.cpp
-  cryptonote/src/ConnectivityTool/ConnectivityTool.cpp
   cryptonote/src/crypto/blake256.c
   cryptonote/src/crypto/chacha8.c
   cryptonote/src/crypto/crypto-ops-data.c
